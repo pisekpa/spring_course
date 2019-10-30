@@ -38,6 +38,7 @@ public class DeleteCourseAndReviewsDemo {
 			System.out.println("Deleting the course ... ");
 			System.out.println(tempCourse);
 			
+			
 			// print the course reviews
 			System.out.println(tempCourse.getReviews());
 			
