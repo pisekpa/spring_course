@@ -46,7 +46,7 @@ public class EagerLazyDemo {
 
 			// option 1: call getter method while session is open
 			
-			// get courses for the instructor
+			// get courses for the instructor (Case Lazy when declare after Session.close) 
 			System.out.println("luv2code: Courses: " + tempInstructor.getCourses());
 			
 			System.out.println("luv2code: Done!");
