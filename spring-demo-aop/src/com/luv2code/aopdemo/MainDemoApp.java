@@ -1,5 +1,6 @@
 package com.luv2code.aopdemo;
 
+import org.aspectj.lang.annotation.Before;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.luv2code.aopdemo.dao.AccountDAO;
@@ -21,7 +22,10 @@ public class MainDemoApp {
 		MembershipDAO theMembershipDAO = context.getBean("membershipDAO" , MembershipDAO.class);
 		
 		// call the business method
-		theAccountDAO.addAccount();
+		//theAccountDAO.addAccount();
+		Account myAccount = new Account();
+		//theAccountDAO.addAccount(myAccount); // match with @Before("execution(* add*(com.luv2code.aopdemo.Account))") 
+		theAccountDAO.addAccount(myAccount , true); //
 		
 		//call the membership business method
 		theMembershipDAO.addSillyMember();
