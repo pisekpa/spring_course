@@ -22,6 +22,10 @@ public class MyDemoLoggingAspect {
 	
 	//@Before("execution(* add*(com.luv2code.aopdemo.Account))")  // 6.
 	//@Before("execution(* add*(com.luv2code.aopdemo.Account , ..))")  // 7.
+
+	//@Before("execution(* add*(..))")  // 8. Match Any Param
+
+	@Before("execution(* com.luv2code.aopdemo.dao.*.*(..))")  
 	public void beforeAddAccountAdvice() {
 		
 		System.out.println("\n=====>>> Executing @Before advice on addAccount()");

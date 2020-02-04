@@ -26,9 +26,11 @@ public class MainDemoApp {
 		Account myAccount = new Account();
 		//theAccountDAO.addAccount(myAccount); // match with @Before("execution(* add*(com.luv2code.aopdemo.Account))") 
 		theAccountDAO.addAccount(myAccount , true); //
+		theAccountDAO.doWork();
 		
 		//call the membership business method
 		theMembershipDAO.addSillyMember();
+		theMembershipDAO.goToSleep();
 		
 
 		// do it again!
