@@ -21,7 +21,6 @@ public class EmployeeRestController {
 
 	private EmployeeService employeeService;
 	
-	//quick and dirty: Inject employee dao (use constructor injection)
 	@Autowired
 	public EmployeeRestController(EmployeeService theEmployeeService) {
 		employeeService = theEmployeeService;
@@ -32,9 +31,9 @@ public class EmployeeRestController {
 	public List<Employee> findAll() {
 		return employeeService.findAll();
 	}
+
+	// add mapping for GET /employees/{employeeId}
 	
-	
-	// add mapping for GET /employees/{employeeId}	
 	@GetMapping("/employees/{employeeId}")
 	public Employee getEmployee(@PathVariable int employeeId) {
 		
@@ -46,12 +45,12 @@ public class EmployeeRestController {
 		
 		return theEmployee;
 	}
-		
 	
-	// add mapping for POST /employees - add new employee		
+	// add mapping for POST /employees - add new employee
+	
 	@PostMapping("/employees")
 	public Employee addEmployee(@RequestBody Employee theEmployee) {
-			
+		
 		// also just in case they pass an id in JSON ... set id to 0
 		// this is to force a save of new item ... instead of update
 		
@@ -62,8 +61,8 @@ public class EmployeeRestController {
 		return theEmployee;
 	}
 	
+	// add mapping for PUT /employees - update existing employee
 	
-	// add mapping for PUT /employees - update existing employee	
 	@PutMapping("/employees")
 	public Employee updateEmployee(@RequestBody Employee theEmployee) {
 		
@@ -72,8 +71,8 @@ public class EmployeeRestController {
 		return theEmployee;
 	}
 	
+	// add mapping for DELETE /employees/{employeeId} - delete employee
 	
-	// add mapping for DELETE /employees/{employeeId} - delete employee	
 	@DeleteMapping("/employees/{employeeId}")
 	public String deleteEmployee(@PathVariable int employeeId) {
 		
@@ -89,7 +88,6 @@ public class EmployeeRestController {
 		
 		return "Deleted employee id - " + employeeId;
 	}
-
 	
 }
 
