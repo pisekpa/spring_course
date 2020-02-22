@@ -56,7 +56,27 @@
 					</form>
 					</div>
 					
-			
+					<div class="col-small">
+					<!-- Add "delete" button/link -->					
+					<!--  <form action="#" th:action="@{/employees/delete}" method="POST">
+					
+						<input type="hidden" name="employeeId" th:value="${tempEmployee.id}" />						
+						<button type="submit" class="btn btn-danger btn-sm"
+								onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+								Delete
+						</button>
+
+					</form>-->
+					
+					<!-- Add "delete" button/link -->					
+					<a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
+					   class="btn btn-danger btn-sm"
+					   onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+						Delete
+					</a>
+					
+					
+					</div>
 				</div>	
 				</td>
 				
